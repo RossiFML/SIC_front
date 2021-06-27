@@ -5,6 +5,7 @@
       :zoom="zoom"
       map-type-id="roadmap"
       style="width: 100%; height: 100%;" v-if="mapReload"
+      @click="clickMap()"
     >
       <GmapMarker
         :key="index"
@@ -51,8 +52,8 @@ export default {
       marker: null,
       markers: [{
         position: {
-          lat: -11.853793517689533,
-          lng: -55.534664397800015,
+          lat: -11.856102,
+          lng: -55.5050492,
         }
       }, {
         position: {
@@ -74,11 +75,6 @@ export default {
           lat: -11.8572335,
           lng: -55.5092467,
         }
-      }, {
-        position: {
-          lat: -11.8514375,
-          lng: -55.509354,
-        }
       }
       ]
     }
@@ -96,6 +92,14 @@ export default {
         scaledSize: new window.google.maps.Size(50, 50)
       }
       return imagem
+    },
+    clickMap() {
+      this.markers.push({
+        position: {
+          lat: -11.853793517689533,
+          lng: -55.534664397800015,
+        }
+      })
     },
     selected (e) {
       console.log(e)
